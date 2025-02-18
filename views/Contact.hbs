@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="#" class="logo" aria-label="Homepage">Vishu〽</a>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="/Home" role="menuitem">Home</a></li>
+                <li role="none"><a href="/about" role="menuitem">About</a></li>
+                <li role="none"><a href="/servcies" role="menuitem">Services</a></li>
+                <li role="none"><a href="/contact" role="menuitem">Contact</a></li>
+                 <li role="none"><a class="logoutbtn" href="/logout" role="menuitem"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="contact-section">
+            <h2>Contact Me</h2>
+            <form id="contact-form" action="/contact" method="post">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            {{#if success}}
+            <p class="success-message">{{success}}</p>
+            {{/if}}
+            {{#if error}}
+            <p class="error-message">{{error}}</p>
+            {{/if}}
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
