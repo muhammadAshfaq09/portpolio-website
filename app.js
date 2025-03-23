@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(process.env.MONGODB_URI || "mongodb+srv://vishu123:vishuatlas112233$@cluster0.6pr2l.mongodb.net/vishudata" , {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
